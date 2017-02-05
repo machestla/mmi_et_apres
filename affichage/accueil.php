@@ -250,7 +250,7 @@ include('header.php');
         <img src="../img/mache.jpg" alt="Chloé">
         <div class="presentation-texte">
             <h3 class="prenom">Marie-Hélène</h3>
-            <p class="paragraphe">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse feugiat vestibulum dolor, eu euismod turpis tincidunt vel.aecenas pharetra ac est et blandit. Sed euismod eleifend tristique. Donec cursus, metus eu fringilla bibendum, ligula risus elementum justo, eu eleifend mauris lacus ut mauris. Ut sit amet ipsum eu purus porttitor convallis.</p>
+            <p class="paragraphe"><strong>Hello,</strong> je suis M-H (like here &#8593;). J'ai participé au développement de ce site, à la création de son contenu ainsi qu'à l'organisation des évènements en parallèle. J'aime énormèment le développement web même si le CSS me donne la migraine (je préfère le PHP). Ce que j'aime dans la réalisation de ce projet, c'est l'interaction avec la sphère MMI.<br/> Happy to help you, Mâche (M-H).</p>
         </div>
         <div class="cache-opaque"></div>
     </div>
@@ -260,7 +260,7 @@ include('header.php');
         <img src="../img/chloe.jpg" alt="Chloé">
         <div class="presentation-texte">
             <h3 class="prenom">Chloé</h3>
-            <p class="paragraphe">Hey ! Moi c’est Chloé et c’est moi qui ai participé au développement de ce petit site ! Je suis passionnée par le digital et surtout par le développement web ! J’aime penser à l’ergonomie d’un site et examiner quels sont les besoins de l’utilisateur pour un site. Je suis convaincu par ce projet qui peut vraiment aider certaines personnes à choisir son avenir grâce à des témoignages d’anciens étudiants concrets ! </p>
+            <p class="paragraphe"><strong>Hey !</strong> Moi c’est Chloé et c’est moi qui ai participé au développement de ce petit site ! Je suis passionnée par le digital et surtout par le développement web ! J’aime penser à l’ergonomie d’un site et examiner quels sont les besoins de l’utilisateur pour un site. Je suis convaincu par ce projet qui peut vraiment aider certaines personnes à choisir son avenir grâce à des témoignages d’anciens étudiants concrets ! </p>
         </div>
         <div class="cache-opaque"></div>
     </div>

@@ -1,5 +1,5 @@
 <?php
-include("entete.php");
+include("header.php");
 ?>
 
 
@@ -9,7 +9,6 @@ include("entete.php");
             <li><a href='#'><span>Audiovisuel</span></a></li>
             <li><a href='#'><span>Communication</span></a></li>
             <li><a href='#'><span>Web</span></a></li>
-            <li><a href='#'><span>Ecoles</span></a></li>
 
             <!--        </div>-->
     </div>
