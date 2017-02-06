@@ -8,11 +8,14 @@
 <link href="../css/bootstrap.css" rel="stylesheet" type="text/css" />
 <script type="application/javascript" src='../js/jquery-3.1.1.min.js'></script>
 <script type="application/javascript" src='../js/bootstrap.min.js'></script>
+<script type="application/javascript" src='../js/script.js'></script>
 <!--</head>-->
 
 <!--<body>-->
 <header class="header" id="main-header">
-
+    
+    <button class="hamburger">&#9776;</button>
+    <button class="cross">&#735;</button>
 
     <div class="header-menu">
         <div class="box accueil"><a href="#" title="Accueil" target="_blank">Accueil</a></div>
