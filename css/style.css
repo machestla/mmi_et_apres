@@ -10,14 +10,17 @@ body {
     font-family: Arial;
 }
         /*******************header******************/
-
-.header-menu {
-    /* 
+#main-header{
+       /* 
     background-color : #e61471
     background-color: #ea588c;*/
+    
     background-color: #ffffff;
-    display: flex;
     height: 100px;
+}
+.header-menu {
+    height: 100px;
+    display: flex;
     justify-content: space-around;
     align-items: center;
     position: relative;
@@ -32,7 +35,7 @@ body {
 }
 .header-menu a {
     padding: 8% 10%;
-    width : 35%;
+    width : 40%;
     font-size: 2rem;
     color: #e61471;
     text-decoration: none;
@@ -44,7 +47,7 @@ body {
     z-index : 1;
 }
 .header-menu img {
-    max-width: 60%;
+    max-width: 70%;
     height: auto;
 }
 .header-menu a:hover {
@@ -57,49 +60,57 @@ body {
     color: #e61471;
     background-color: white;
 }
+
+.ligne {
+    background : transparent;
+    border-color : #e61471;
+    border-width : 0 0 1px;
+    border-style : solid;
+}
+
+.header-toogle {
+    display: none;
+    font-size: 4rem;
+    color : #e61471;
+}
+/******************** Hamburger menu ********************/
 @media screen and (max-width: 993px) {
     .header-menu a {
         padding: 0% 1%;
-        font-size: 3.3rem;
+        font-size: 1rem;
     }
     .header-menu {
         flex-direction: column;
         justify-content: space-around;
+        overflow: hidden;
+        max-height: 0;
+        transition: max-heigth 400ms ease-in-out;
+        position: relative;
+        z-index: 7;
 }
-    .hamburger{
-        background:none;
-        position:absolute;
-        top:0;
-        right:0;
-        line-height:45px;
-        padding:5px 15px 0px 15px;
-        color:#e61471;
-        border:0;
-        font-size:1.4em;
-        font-weight:bold;
-        cursor:pointer;
-        outline:none;
+    .header-toogle {
+        display: block;
+        position: absolute;
+        top: 25px;
+        right: 10px;
     }
-    .cross{
-        background:none;
-        position:absolute;
-        top:0px;
-        right:0;
-        padding:13px 15px 0px 15px;
-        color:#e61471;
-        border:0;
-        font-size:3em;
-        line-height:65px;
-        font-weight:bold;
-        cursor:pointer;
-        outline:none;
+    .header-toogle-close {
+        display: none;
     }
-    .glyphicon-home{
-        color:#e61471; 
-        font-size:1.5em; 
-        margin-top:5px; 
-        margin:0 auto;
+    #main-header:target .header-toogle-close {
+        display: inline;
     }
+    #main-header:target .header-toogle-open {
+        display: none;
+    }
+    
+    #main-header:target .header-menu {
+        max-height: 400px;
+    }
+    
+    .box logo {
+    overflow: hidden;
+}
  
         /******************** Hamburger menu ********************/
     
