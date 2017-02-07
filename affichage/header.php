@@ -22,12 +22,8 @@
     
     <div class="header-toogle">
     <a class="header-toogle-open" href="#main-header">&#9776;</a>
-    <a href="#" class="header-toogle-close">&#735;</a>
+    <a class="header-toogle-close" href="#">&#735;</a>
     </div>
-    
-    <!-- <button class="hamburger">&#9776;</button>
-    <button class="cross">&#735;</button> -->
-
     
                         <!-- Menu principal -->
     <div class="header-menu">
@@ -35,10 +31,9 @@
         <div class="box articless"><a href="#" title="Articles" target="_blank">Articles</a></div>
          <div class="box logo"><a href="#" title="logo" target="_blank" class="logos"><img src="../img/logo-officiel.png" alt="Logo"></a></div>
          <div class="box contact"><a href="#" title="Contact" target="_blank">Contact</a></div>
-         <div class="box répertoire"><a href="#" title="Ecoles" target="_blank">Répertoire des écoles</a></div>
-        <div class="ligne"></div>
+         <div class="box repertoire"><a href="#" title="Ecoles" target="_blank">Répertoire des écoles</a></div>
     </div>
-
+<div class="ligne"></div>
 </header>
 
 <!--
