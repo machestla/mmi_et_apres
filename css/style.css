@@ -337,7 +337,7 @@ body {
             color: white;
             font-size: 2rem;
             text-align: justify;
-            max-height: 150px;
+/*            max-height: 150px;*/
         }
         .equipe-presentation-item {
             position: relative;
