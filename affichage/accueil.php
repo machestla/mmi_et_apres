@@ -230,7 +230,7 @@ include('header.php');
         <img src="../img/gwen.png" alt="Gwen">
         <div class="presentation-texte">
             <h3 class="prenom">Gwendoline</h3>
-            <p class="paragraphe">En tant que chef de projet,  je veille au bon fonctionnement de l’équipe et vérifie le respect des délais ainsi que l’avancée du projet. Passionnée par l’infographie et l’événementiel, je prend en charge la conception de la communication des différents événements mais m’occupe également de la communication avec les anciens étudiants.</p>
+            <p class="paragraphe"><strong>En tant que chef de projet,</strong>  je veille au bon fonctionnement de l’équipe et vérifie le respect des délais ainsi que l’avancée du projet. Passionnée par l’infographie et l’événementiel, je prend en charge la conception de la communication des différents événements mais m’occupe également de la communication avec les anciens étudiants.</p>
         </div>
         <div class="cache-opaque"></div>
     </div>
@@ -240,7 +240,7 @@ include('header.php');
         <img src="../img/nion.png" alt="Nion">
         <div class="presentation-texte">
             <h3 class="prenom">Marion</h3>
-            <p class="paragraphe">Pour ma part, j’ai été responsable de l’aspect graphique et audiovisuel lié au site, ces deux points étant des passions pour moi. J’ai donc eu la possibilité d’essayer de créer des designs sympathiques, mais aussi des vidéos qui se voulaient être agréables à regarder. En plus de ça, j’ai également pu travailler sur la rédaction de certains articles.</p>
+            <p class="paragraphe"><strong>Pour ma part,</strong> j’ai été responsable de l’aspect graphique et audiovisuel lié au site, ces deux points étant des passions pour moi. J’ai donc eu la possibilité d’essayer de créer des designs sympathiques, mais aussi des vidéos qui se voulaient être agréables à regarder. En plus de ça, j’ai également pu travailler sur la rédaction de certains articles.</p>
         </div>
         <div class="cache-opaque"></div>
     </div>
