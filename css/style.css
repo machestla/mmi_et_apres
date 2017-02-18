@@ -337,15 +337,17 @@ body {
             color: white;
             font-size: 2rem;
             text-align: justify;
+            max-height: 150px;
         }
         .equipe-presentation-item {
             position: relative;
             padding: 0px 0px 0px 0px;
             margin: 0px 0px 0px;
+/*            height: 250px;*/
         }
         .equipe-presentation-item img {
-            max-height: 320px;
             width: 100%;
+            position:relative;
         }
         .presentation-texte {
             position: absolute;
