@@ -1,19 +1,35 @@
 <?php
 include('header.php');
-?>
+include("../divers/connexion.php");
+include("../divers/balises.php");
 
-    <div id='cssvmenu' class='col-md-3'>
-        <!--        <div class="menu col-md-3 row">-->
-        <ul class="ul">
-            <li><a href='#'><span>Audiovisuel</span></a></li>
-            <li><a href='#'><span>Communication</span></a></li>
-            <li><a href='#'><span>Web</span></a></li>
-            <li><a href='#'><span>Ecoles</span></a></li>
 
-            <!--        </div>-->
+if(isset($_GET['id'])){
+  
+   $sql = "SELECT * FROM article WHERE id=?";
+    $query = $pdo->prepare($sql);
+    $query->execute(array($_GET['id']));
+    while($line = $query->fetch()) {
+        echo
+           '<h1 class="tittle">'.$line['titre'].'</h1>
+<p class="date">'.$line['date'].'</p>
+
+<div class="contenu-article container-fluid">
+    <div class="row">
+        <div class="photo-video col-md-6">
+            <img src="'.$line['contenu_visuel'].'">
+        </div>
+
+
+        <div class="texte-article col-md-6">
+            <p>'.$line['contenu_txt'].'</p>
+
+        </div>
+
     </div>
+</div>';
+    }
+}
 
-    <?php
-include('footer.php');
-//    include("/header-footer/header.html");
+   
 ?>
