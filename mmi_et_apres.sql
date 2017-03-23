@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Jeu 23 Mars 2017 à 03:03
+-- Généré le :  Jeu 23 Mars 2017 à 20:13
 -- Version du serveur :  5.7.14
 -- Version de PHP :  5.6.25
 
@@ -135,7 +135,9 @@ INSERT INTO `formation` (`idTagDomaine`, `Nom`, `idTagType`, `Ville`, `idTagRegi
 (2, 'EFAP', 6, 'Bordeaux', 8, 'www.efap.com'),
 (2, 'EFAP', 6, 'Lyon', 9, 'www.efap.com'),
 (2, 'INFOCOM', 3, 'Roubaix', 1, 'www.univ-lille3.fr'),
-(2, 'INFOCOM', 4, 'Roubaix', 1, 'www.univ-lille3.fr');
+(2, 'INFOCOM', 4, 'Roubaix', 1, 'www.univ-lille3.fr'),
+(3, 'Licence Pro reseaux et telecommunications specialite developpement web et mobilite', 3, 'Orlean', 6, 'www.univ-orleans.fr/iut-orleans/'),
+(1, 'AIS Atelier de l\'Image et du Son', 1, 'Marseille', 11, 'www.ais-formation.com');
 
 -- --------------------------------------------------------
 
