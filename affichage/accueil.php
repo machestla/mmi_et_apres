@@ -62,13 +62,13 @@ include("../divers/connexion.php");
         <div class="articles container-fluid">
 
             <?php
-             $sql = "SELECT * FROM article JOIN auteur ON idAuteur=auteur.id JOIN tagdomaine ON idTagDomaine=tagdomaine.id JOIN tagmetier ON idTagMetier=tagmetier.id";
+             $sql = "SELECT *, article.id AS ouvrelarticlestp FROM article JOIN auteur ON idAuteur=auteur.id JOIN tagdomaine ON idTagDomaine=tagdomaine.id JOIN tagmetier ON idTagMetier=tagmetier.id";
     $query = $pdo->prepare($sql);
     $query->execute();
     while($line = $query->fetch()) {
         echo
            ' <div class="article col-md-4">
-                <a href="articleseul.php?id='.$line['id'].'">;
+                <a href="articleseul.php?id='.$line['ouvrelarticlestp'].'">
                     <!--php -->
                     <div class="contenu">
                     
@@ -117,7 +117,7 @@ include("../divers/connexion.php");
 
             <div class="equipe-presentation-item">
 
-                <img src="../img/gwen.png" alt="Gwen">
+                <img src="../img/portrait/gwen.png" alt="Gwen">
                 <div class="presentation-texte">
                     <h3 class="prenom">Gwendoline</h3>
                     <p class="paragraphe"><strong>En tant que chef de projet,</strong> je veille au bon fonctionnement de l’équipe et vérifie le respect des délais ainsi que l’avancée du projet. Passionnée par l’infographie et l’événementiel, je prend en charge la conception de la communication des différents événements mais m’occupe également de la communication avec les anciens étudiants.</p>
@@ -127,7 +127,7 @@ include("../divers/connexion.php");
 
             <div class="equipe-presentation-item">
 
-                <img src="../img/nion.png" alt="Nion">
+                <img src="../img/portrait/nion.png" alt="Nion">
                 <div class="presentation-texte">
                     <h3 class="prenom">Marion</h3>
                     <p class="paragraphe"><strong>Pour ma part,</strong> j’ai été responsable de l’aspect graphique et audiovisuel lié au site, ces deux points étant des passions pour moi. J’ai donc eu la possibilité d’essayer de créer des designs sympathiques, mais aussi des vidéos qui se voulaient être agréables à regarder. En plus de ça, j’ai également pu travailler sur la rédaction de certains articles.</p>
@@ -137,7 +137,7 @@ include("../divers/connexion.php");
 
             <div class="equipe-presentation-item">
 
-                <img src="../img/mâche.png" alt="Mâche">
+                <img src="../img/portrait/mâche.png" alt="Mâche">
                 <div class="presentation-texte">
                     <h3 class="prenom">Marie-Hélène</h3>
                     <p class="paragraphe"><strong>Hello,</strong> je suis M-H (like here &#8593;). J'ai participé au développement de ce site, à la création de son contenu ainsi qu'à l'organisation des évènements en parallèle. J'aime énormèment le développement web même si le CSS me donne la migraine (je préfère le PHP). Ce que j'aime dans la réalisation de ce projet, c'est l'interaction avec la sphère MMI.
@@ -148,7 +148,7 @@ include("../divers/connexion.php");
 
             <div class="equipe-presentation-item">
 
-                <img src="../img/chloé.png" alt="Chloé">
+                <img src="../img/portrait/chloé.png" alt="Chloé">
                 <div class="presentation-texte">
                     <h3 class="prenom">Chloé</h3>
                     <p class="paragraphe"><strong>Hey !</strong> Moi c’est Chloé et c’est moi qui ai participé au développement de ce petit site ! Je suis passionnée par le digital et surtout par le développement web ! J’aime penser à l’ergonomie d’un site et examiner quels sont les besoins de l’utilisateur.

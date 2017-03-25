@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Ven 24 Mars 2017 à 23:52
+-- Généré le :  Sam 25 Mars 2017 à 11:57
 -- Version du serveur :  5.7.14
 -- Version de PHP :  5.6.25
 
@@ -32,6 +32,7 @@ CREATE TABLE `article` (
   `titre` text NOT NULL,
   `contenu_visuel` text,
   `contenu_video` text,
+  `resume` varchar(255) DEFAULT NULL,
   `contenu_txt` text NOT NULL,
   `idTagDomaine` int(255) NOT NULL,
   `idTagMetier` int(255) NOT NULL,
@@ -43,13 +44,13 @@ CREATE TABLE `article` (
 -- Contenu de la table `article`
 --
 
-INSERT INTO `article` (`id`, `date`, `titre`, `contenu_visuel`, `contenu_video`, `contenu_txt`, `idTagDomaine`, `idTagMetier`, `idTagRegion`, `idAuteur`) VALUES
-(1, '2017-03-12', 'Interview de Yann Kubacki - Gobelins', NULL, 'content/interview_yann.mp4', 'Vous pouvez retrouver dans cette interview le parcours et les conseils de Yann Kubacki, ancien etudiant de notre formation.', 3, 1, 1, 1),
-(2, '2017-03-12', 'Interview de Quentin Tshaimanga - Developpeur full stack', NULL, 'content/interview_quentin.mp4', 'Vous pouvez retrouver dans cette interview le parcours et les conseils de Quentin Tshaimanga, ancien etudiant de notre formation.', 3, 1, 1, 1),
-(3, '2017-03-12', 'Interview de Maxime Blin - ISART digital', NULL, 'content/interview_maxime.mp4', 'Vous pouvez retrouver dans cette interview le parcours et les conseils de Maxime Blin, ancien etudiant de notre formation.', 1, 1, 1, 1),
-(4, '2017-03-12', 'Interview de Gaëlle Gignon - Ingénieure pédagogique', NULL, 'content/interview_gaelle.mp4', 'Vous pouvez retrouver dans cette interview le parcours et les conseils de Gaëlle Guignon, ancienne étudiante de notre formation.', 3, 1, 1, 1),
-(5, '2017-03-12', 'Interview d\'Edwin Leblond - Bachelor graphique', NULL, 'content/interview_edwin.mp4', 'Vous pouvez retrouver dans cette interview le parcours et les conseils de Edwin Leblond, ancien etudiant de notre formation.', 2, 1, 1, 1),
-(6, '2017-03-12', 'Interview d\'Alexandre Laurette - Trucages image et son', NULL, 'content/interview_alexandre.mp4', 'Vous pouvez retrouver dans cette interview le parcours et les conseils d\'Alexandre Laurette, ancien etudiant de notre formation.', 1, 1, 1, 1);
+INSERT INTO `article` (`id`, `date`, `titre`, `contenu_visuel`, `contenu_video`, `resume`, `contenu_txt`, `idTagDomaine`, `idTagMetier`, `idTagRegion`, `idAuteur`) VALUES
+(1, '2017-03-12', 'Interview de Yann Kubacki - Gobelins', '../img/interview/Yann.png', '../content/interview_yann.mp4', NULL, 'Vous pouvez retrouver dans cette interview le parcours et les conseils de Yann Kubacki, ancien etudiant de notre formation.', 3, 1, 1, 1),
+(2, '2017-03-12', 'Interview de Quentin Tshaimanga - Developpeur full stack', '../img/interview/Quentin.png', '../content/interview_quentin.mp4', NULL, 'Vous pouvez retrouver dans cette interview le parcours et les conseils de Quentin Tshaimanga, ancien etudiant de notre formation.', 3, 1, 1, 1),
+(3, '2017-03-12', 'Interview de Maxime Blin - ISART digital', '../img/interview/Maxime.png', '../content/interview_maxime.mp4', NULL, 'Vous pouvez retrouver dans cette interview le parcours et les conseils de Maxime Blin, ancien etudiant de notre formation.', 1, 1, 1, 1),
+(4, '2017-03-12', 'Interview de Gaëlle Gignon - Ingénieure pédagogique', '../img/interview/Gaelle.png', '../content/interview_gaelle.mp4', NULL, 'Vous pouvez retrouver dans cette interview le parcours et les conseils de Gaëlle Guignon, ancienne étudiante de notre formation.', 3, 1, 1, 1),
+(5, '2017-03-12', 'Interview d\'Edwin Leblond - Bachelor graphique', '../img/interview/Edwin.png', '../content/interview_edwin.mp4', NULL, 'Vous pouvez retrouver dans cette interview le parcours et les conseils de Edwin Leblond, ancien etudiant de notre formation.', 2, 1, 1, 1),
+(6, '2017-03-12', 'Interview d\'Alexandre Laurette - Trucages image et son', '../img/interview/Alexandre.png', '../content/interview_alexandre.mp4', NULL, 'Vous pouvez retrouver dans cette interview le parcours et les conseils d\'Alexandre Laurette, ancien etudiant de notre formation.', 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
