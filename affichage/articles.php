@@ -4,19 +4,21 @@ include("../divers/connexion.php");
 /*include("boutons.php");*/
 ?>
 
-
+    <!--<div class="photo">
+    <img src="../img/Audiovisuel.jpg">
+</div>-->
     <div class="articles-contenu">
 
         <div class="articles container-fluid">
 
             <?php
-             $sql = "SELECT * FROM article JOIN auteur ON idAuteur=auteur.id JOIN tagdomaine ON idTagDomaine=tagdomaine.id JOIN tagmetier ON idTagMetier=tagmetier.id";
+             $sql = "SELECT *, article.id AS ouvrelarticlestp FROM article JOIN auteur ON idAuteur=auteur.id JOIN tagdomaine ON idTagDomaine=tagdomaine.id JOIN tagmetier ON idTagMetier=tagmetier.id order by date desc";
     $query = $pdo->prepare($sql);
     $query->execute();
     while($line = $query->fetch()) {
         echo
            ' <div class="article col-md-4">
-                <a href="articleseul.php?id='.$line['id'].'">;
+                <a href="articleseul.php?id='.$line['ouvrelarticlestp'].'">;
                     <!--php -->
                     <div class="contenu">
                     

@@ -16,24 +16,26 @@
 
 
 <header class="header" id="main-header">
-    
-    
-                        <!--Menu Hamburger de flûte ! -->
-    
+
+
+    <!--Menu Hamburger de flûte ! -->
+
     <div class="header-toogle">
-    <a class="header-toogle-open" href="#main-header">&#9776;</a>
-    <a class="header-toogle-close" href="#">&#735;</a>
+        <a class="header-toogle-open" href="#main-header">&#9776;</a>
+        <a class="header-toogle-close" href="#">&#735;</a>
     </div>
-    
-                        <!-- Menu principal -->
+
+    <!-- Menu principal -->
     <div class="header-menu">
-        <div class="box accueil"><a href="#" title="Accueil" target="_blank">Accueil</a></div>
-        <div class="box articless"><a href="#" title="Articles" target="_blank">Articles</a></div>
-         <div class="box logo"><a href="#" title="logo" target="_blank" class="logos"><img src="../img/logo-officiel.png" alt="Logo"></a></div>
-         <div class="box contact"><a href="#" title="Contact" target="_blank">Contact</a></div>
-         <div class="box repertoire"><a href="#" title="Ecoles" target="_blank">Répertoire des écoles</a></div>
+        <div class="box accueil"><a class="title-header" href="accueil.php" title="Accueil">Accueil</a></div>
+        <div class="box articless"><a class="title-header" href="articles.php" title="Articles">Articles</a></div>
+        <div class="box logo">
+            <a href="accueil.php" title="logo" class="logos title-header"><img src="../img/logo-officiel.png" alt="Logo"></a>
+        </div>
+        <div class="box contact"><a class="title-header" href="#" title="Contact">Contact</a></div>
+        <div class="box repertoire"><a class="title-header" href="boutons.php" title="Ecoles">Écoles</a></div>
     </div>
-<div class="ligne"></div>
+    <div class="ligne"></div>
 </header>
 
 <!--

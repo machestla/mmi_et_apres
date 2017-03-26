@@ -10,7 +10,7 @@ $db='mmi_et_apres'; // le nom de votre base de données.
 $user='root'; // nom d'utilisateur pour se connecter
               // A l'iut prenom.nom	
 
-$passwd='MhR27011997'; // mot de passe de l'utilisateur pour se connecter
+$passwd=''; // mot de passe de l'utilisateur pour se connecter
             // A l'iut, généré automatiquement
 
 try {
