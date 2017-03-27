@@ -1,11 +1,14 @@
 <?php
 include("../divers/connexion.php"); // On se connecte à la base
+
 ?>
 
     <html lang="fr">
 
     <head>
         <meta charset="utf-8" />
+        <link href="../css/style.css" rel="stylesheet" type="text/css" />
+        <link href="../css/bootstrap.css" rel="stylesheet" type="text/css" />
         <title>Articles</title>
 
     </head>
@@ -15,7 +18,7 @@ include("../divers/connexion.php"); // On se connecte à la base
     <body>
 
 
-        <form action="#" method="get">
+        <form action="#" method="get" class="form-choix">
             <select name='domaine'>
 
                 <?php
@@ -45,9 +48,15 @@ $sql = "SELECT DISTINCT * FROM formation JOIN tagdomaine ON idTagDomaine=tagdoma
 
 
 
-            <!--<select name='region'><option>$region</option></select>
--->
-            <input type='submit' />
+            <select name='region'>
+                <option>region</option>
+            </select>
+
+            <select name='type'>
+                <option>type</option>
+            </select>
+
+            <input type='submit' class="btn" />
         </form>
 
 
@@ -68,18 +77,6 @@ $sql = "SELECT DISTINCT * FROM formation JOIN tagdomaine ON idTagDomaine=tagdoma
         ?>
 
 
-            <!--<div class="bouton-choix">
-    <p>
-        <input type="submit" value="Communication" class="choix " />
-    </p>
-    <p>
-        <input type="submit" value="Audiovisuel" class="choix" />
-    </p>
-    <p>
-        <input type="submit" value="Web" class="choix" />
-    </p>
-
-</div>-->
 
     </body>
 

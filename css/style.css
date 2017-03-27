@@ -230,7 +230,7 @@ body {
     color: white;
 }
 .contenu:hover .resume {
-    color: #e61471;
+    color: white;
 }
 .contenu:hover h4 {
     font-size: 2.5rem;
@@ -257,6 +257,27 @@ body {
     text-align: right;
     margin: 20px 15px 0px 0px;
     font-size: 1.7rem;
+}
+.contenu-contenu:hover h4 {
+    color: white;
+    text-decoration: none;
+}
+.contenu-contenu {
+    color: white;
+    text-decoration: none;
+}
+.contenu-contenu h4 {
+    color: #e61471;
+    text-decoration: none;
+}
+.resume {
+    visibility: hidden;
+}
+.contenu-contenu:hover .resume {
+    visibility: visible;
+}
+.contenu-contenu:hover h4 {
+    display: none;
 }
 .resume p {
     font-size: 1.5rem;
@@ -589,6 +610,7 @@ body {
 .button {
     padding-top: 2%;
     padding-left: 5%;
+    padding-bottom: 2%;
 }
 
 /*******************************article-seul**************************************/
@@ -612,4 +634,9 @@ body {
     width: 100%;
     margin-right: auto;
     margin-left: auto;
+}
+.form-choix {
+    padding-top: 5%;
+    padding-left: 2%;
+    text-align: center;
 }

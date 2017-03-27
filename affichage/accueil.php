@@ -31,16 +31,17 @@ include("../divers/connexion.php");
 
             <!-- Mise en place du contenu pour le Caroussel -->
             <div class="carousel-inner">
+                <div class="item ">
+                    <img src="../img/audiovisuel.jpg" alt="img1" class="img-responsive" width="100%">
+                </div>
+
                 <div class="item active">
-                    <img src="../img/Web.jpg" alt="img1" class="img-responsive" width="100%">
-                </div>
-
-                <div class="item">
                     <img src="../img/Communication.jpg" alt="img2" class="img-responsive" width="100%">
+                    <p>Communication</p>
                 </div>
 
                 <div class="item">
-                    <img src="../img/Audiovisuel.jpg" alt="img3" class="img-responsive" width="100%">
+                    <img src="../img/web.jpg" alt="img3" class="img-responsive" width="100%">
                 </div>
             </div>
 

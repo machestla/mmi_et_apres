@@ -7,11 +7,20 @@ include("../divers/connexion.php");
     <!--<div class="photo">
     <img src="../img/Audiovisuel.jpg">
 </div>-->
-    <div class="articles-contenu">
 
-        <div class="articles container-fluid">
+    <div class="item active">
+        <img src="../img/article.jpg" alt="img1" class="img-responsive" width="100%">
+    </div>
 
-            <?php
+    <?php
+include("boutons.php");
+
+?>
+        <div class="articles-contenu">
+
+            <div class="articles container-fluid">
+
+                <?php
              $sql = "SELECT *, article.id AS ouvrelarticlestp FROM article JOIN auteur ON idAuteur=auteur.id JOIN tagdomaine ON idTagDomaine=tagdomaine.id JOIN tagmetier ON idTagMetier=tagmetier.id order by date desc";
     $query = $pdo->prepare($sql);
     $query->execute();
@@ -49,8 +58,8 @@ include("../divers/connexion.php");
 
 
 
-        </div>
+            </div>
 
-        <?php
+            <?php
 include('footer.php');
 ?>

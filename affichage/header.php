@@ -33,7 +33,7 @@
             <a href="accueil.php" title="logo" class="logos title-header"><img src="../img/logo-officiel.png" alt="Logo"></a>
         </div>
         <div class="box contact"><a class="title-header" href="#" title="Contact">Contact</a></div>
-        <div class="box repertoire"><a class="title-header" href="boutons.php" title="Ecoles">Écoles</a></div>
+        <div class="box repertoire"><a class="title-header" href="ecoles.php" title="Ecoles">Écoles</a></div>
     </div>
     <div class="ligne"></div>
 </header>
