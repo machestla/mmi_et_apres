@@ -62,7 +62,7 @@ $sql = "SELECT DISTINCT * FROM formation JOIN tagdomaine ON idTagDomaine=tagdoma
 
         <?php
          if(isset($_GET['domaine'])) {
-	$sql = "SELECT * FROM article JOIN tagdomaine ON idTagDomaine=tagdomaine.id WHERE domaine=?"; // 
+	$sql = "SELECT *, formation.id AS idformation FROM formation JOIN tagdomaine ON idTagDomaine=tagdomaine.id JOIN tagregion ON idTagRegion=tagregion.id JOIN type ON idTagType=type.id WHERE domaine=?";  // 
 
 	$query = $pdo->prepare($sql); // Etpae 1 : On prépare la requête
 	
@@ -71,8 +71,16 @@ $sql = "SELECT DISTINCT * FROM formation JOIN tagdomaine ON idTagDomaine=tagdoma
 	
 	
 	while($line = $query->fetch()) { // Etape 3 : on parcours le résultat
-		echo '<p>'.$line['domaine'].'</p>';
-	} 
+		echo
+           ' <div class=" col-md-4">
+           <h3>'.$line['NomEcole'].'</h3>
+                <a href="'.$line['Lien'].'">aller vers le site de l\'école</a>
+                <p>'.$line['Ville'].'</p>
+                <p>'.$line['region'].'</p>
+                    
+                    </div>';    
+    }
+
                 }
         ?>
 
