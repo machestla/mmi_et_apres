@@ -632,8 +632,9 @@ body {
 }
 .photo-video {
     width: 100%;
-    margin-right: auto;
-    margin-left: auto;
+    text-align: center;
+    /*margin-right: auto;
+    margin-left: auto;*/
 }
 .form-choix {
     padding-top: 5%;

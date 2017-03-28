@@ -13,7 +13,7 @@ include("../divers/connexion.php");
     </div>
 
     <?php
-include("boutons.php");
+include("boutons-accueil.php");
 
 ?>
         <div class="articles-contenu">
