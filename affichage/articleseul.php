@@ -18,8 +18,8 @@ if(isset($_GET['id'])){
 <p class="date">'.$line['date'].'</p>
 <div class="contenu-article">
     <div class="row">
-        <div class=" col-md-6">
-    <iframe width="480" height="270" src="'.$line['contenu_video'].'"></iframe>
+        <div class=" col-md-6 photo-video">
+    <iframe width="576" height="324" src="'.$line['contenu_video'].'"></iframe>
     
      </div>
         <div class="texte-article col-md-6">
