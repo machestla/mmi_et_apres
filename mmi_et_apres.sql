@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Sam 25 Mars 2017 à 11:57
+-- Généré le :  Mar 28 Mars 2017 à 15:03
 -- Version du serveur :  5.7.14
 -- Version de PHP :  5.6.25
 
@@ -45,12 +45,12 @@ CREATE TABLE `article` (
 --
 
 INSERT INTO `article` (`id`, `date`, `titre`, `contenu_visuel`, `contenu_video`, `resume`, `contenu_txt`, `idTagDomaine`, `idTagMetier`, `idTagRegion`, `idAuteur`) VALUES
-(1, '2017-03-12', 'Interview de Yann Kubacki - Gobelins', '../img/interview/Yann.png', '../content/interview_yann.mp4', NULL, 'Vous pouvez retrouver dans cette interview le parcours et les conseils de Yann Kubacki, ancien etudiant de notre formation.', 3, 1, 1, 1),
-(2, '2017-03-12', 'Interview de Quentin Tshaimanga - Developpeur full stack', '../img/interview/Quentin.png', '../content/interview_quentin.mp4', NULL, 'Vous pouvez retrouver dans cette interview le parcours et les conseils de Quentin Tshaimanga, ancien etudiant de notre formation.', 3, 1, 1, 1),
-(3, '2017-03-12', 'Interview de Maxime Blin - ISART digital', '../img/interview/Maxime.png', '../content/interview_maxime.mp4', NULL, 'Vous pouvez retrouver dans cette interview le parcours et les conseils de Maxime Blin, ancien etudiant de notre formation.', 1, 1, 1, 1),
-(4, '2017-03-12', 'Interview de Gaëlle Gignon - Ingénieure pédagogique', '../img/interview/Gaelle.png', '../content/interview_gaelle.mp4', NULL, 'Vous pouvez retrouver dans cette interview le parcours et les conseils de Gaëlle Guignon, ancienne étudiante de notre formation.', 3, 1, 1, 1),
-(5, '2017-03-12', 'Interview d\'Edwin Leblond - Bachelor graphique', '../img/interview/Edwin.png', '../content/interview_edwin.mp4', NULL, 'Vous pouvez retrouver dans cette interview le parcours et les conseils de Edwin Leblond, ancien etudiant de notre formation.', 2, 1, 1, 1),
-(6, '2017-03-12', 'Interview d\'Alexandre Laurette - Trucages image et son', '../img/interview/Alexandre.png', '../content/interview_alexandre.mp4', NULL, 'Vous pouvez retrouver dans cette interview le parcours et les conseils d\'Alexandre Laurette, ancien etudiant de notre formation.', 1, 1, 1, 1);
+(1, '2017-03-12', 'Interview de Yann Kubacki - Gobelins', '../img/interview/Yann.png', 'https://youtu.be/ZPDYWiRItlE', NULL, 'Vous pouvez retrouver dans cette interview le parcours et les conseils de Yann Kubacki, ancien etudiant de notre formation.', 3, 1, 3, 1),
+(2, '2017-03-12', 'Interview de Quentin Tshaimanga - Developpeur full stack', '../img/interview/Quentin.png', 'https://youtu.be/-om6D7b9Ehw', NULL, 'Vous pouvez retrouver dans cette interview le parcours et les conseils de Quentin Tshaimanga, ancien etudiant de notre formation.', 3, 2, 3, 1),
+(3, '2017-03-12', 'Interview de Maxime Blin - ISART digital', '../img/interview/Maxime.png', 'https://youtu.be/8kry5FB4RVw', NULL, 'Vous pouvez retrouver dans cette interview le parcours et les conseils de Maxime Blin, ancien etudiant de notre formation.', 1, 1, 3, 1),
+(4, '2017-03-12', 'Interview de Gaëlle Gigon - Ingénieure pédagogique', '../img/interview/Gaelle.png', '<iframe width="560" height="315" src="https://www.youtube.com/embed/t-m872pBLiE" frameborder="0" allowfullscreen></iframe>', NULL, 'Vous pouvez retrouver dans cette interview le parcours et les conseils de Gaëlle Guigon, ancienne étudiante de notre formation.', 3, 3, 1, 1),
+(5, '2017-03-12', 'Interview d\'Edwin Leblond - Bachelor graphique', '../img/interview/Edwin.png', 'https://youtu.be/hXdnEqZjcMc', NULL, 'Vous pouvez retrouver dans cette interview le parcours et les conseils de Edwin Leblond, ancien etudiant de notre formation.', 2, 1, 1, 1),
+(6, '2017-03-12', 'Interview d\'Alexandre Laurette - Trucages image et son', '../img/interview/Alexandre.png', 'https://youtu.be/JXgeW94RFSk', NULL, 'Vous pouvez retrouver dans cette interview le parcours et les conseils d\'Alexandre Laurette, ancien etudiant de notre formation.', 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -326,7 +326,9 @@ CREATE TABLE `tagmetier` (
 --
 
 INSERT INTO `tagmetier` (`id`, `metier`) VALUES
-(1, 'Aucun');
+(1, 'Aucun'),
+(2, 'Développeur Full Stack'),
+(3, 'Ingénieur(e) Pédagogique');
 
 -- --------------------------------------------------------
 
