@@ -23,7 +23,8 @@ if(isset($_GET['id'])){
         <div class=" col-md-6">
          
          <video class="photo-video" width="400" height="222" controls="controls">
-        <source src="'.$line['contenu_video'].'" type="video/mp4" /> Ici l\'alternative à la vidéo : un lien de téléchargement, un message, etc.
+         <iframe width="560" height="315" src="'.$line['contenu_video'].'" frameborder="0" allowfullscreen></iframe>
+ Ici l\'alternative à la vidéo : un lien de téléchargement, un message, etc.
     </video>
      </div>
 
