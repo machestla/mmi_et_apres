@@ -5,36 +5,36 @@ include("../divers/connexion.php");
     <link href="../css/style.css" rel="stylesheet" type="text/css" />
     <link href="../css/bootstrap.css" rel="stylesheet" type="text/css" />
 
-    <!--<div class="button">
+    <<<<<<< HEAD <!--<div class="button">
         <button type="button" class="btn">Audiovisuel</button>
         <button type="button" class="btn">Communication</button>
         <button type="button" class="btn">Web</button>
-    </div>-->
+        </div>-->
 
-    <div class="button">
+        <div class="button">
 
-        <form method="get" action="">
+            <form method="get" action="">
 
-            <input type="submit" name="all" value="tout" class="btn float" />
-        </form>
+                <input type="submit" name="all" value="tout" class="btn float" />
+            </form>
 
-        <form method="get" action="">
+            <form method="get" action="">
 
-            <input type="submit" name="audiovisuel" value="Audiovisuel" class="btn float" />
-        </form>
+                <input type="submit" name="audiovisuel" value="Audiovisuel" class="btn float" />
+            </form>
 
-        <form method="get" action="">
+            <form method="get" action="">
 
-            <input type="submit" name="communication" value="Communication" class="btn float" />
-        </form>
+                <input type="submit" name="communication" value="Communication" class="btn float" />
+            </form>
 
-        <form method="get" action="">
+            <form method="get" action="">
 
-            <input type="submit" name="web" value="web" class="btn float" />
-        </form>
-    </div>
+                <input type="submit" name="web" value="web" class="btn float" />
+            </form>
+        </div>
 
-    <?php
+        <?php
 
 if(!empty($_GET['all'])){
     
@@ -212,3 +212,9 @@ $query = $pdo->prepare($sql); // Etpae 1 : On prépare la requête
 
 
         ?>
+
+            <!-- <div class="button">
+        <button type="button" class="btn" name="Au">Audiovisuel</button>
+        <button type="button" class="btn" name="Co">Communication</button>
+        <button type="button" class="btn" name="We">Web</button>
+    </div>-->

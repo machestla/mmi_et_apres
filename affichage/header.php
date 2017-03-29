@@ -27,13 +27,21 @@
 
     <!-- Menu principal -->
     <div class="header-menu">
-        <div class="box accueil"><a class="title-header" href="accueil.php" title="Accueil">Accueil</a></div>
-        <div class="box articless"><a class="title-header" href="articles.php" title="Articles">Articles</a></div>
+        <div class="box accueil">
+            <a class="title-header" href="accueil.php" title="Accueil">Accueil</a>
+        </div>
+        <div class="box articless">
+            <a class="title-header" href="articles.php" title="Articles">Articles</a>
+        </div>
         <div class="box logo">
             <a href="accueil.php" title="logo" class="logos title-header"><img src="../img/logo-officiel.png" alt="Logo"></a>
         </div>
-        <div class="box contact"><a class="title-header" href="#" title="Contact">Contact</a></div>
-        <div class="box repertoire"><a class="title-header" href="ecoles.php" title="Ecoles">Écoles</a></div>
+        <div class="box contact">
+            <a class="title-header" href="accueil.php#contact" title="Contact">Contact</a>
+        </div>
+        <div class="box repertoire">
+            <a class="title-header" href="ecoles.php" title="Ecoles">Écoles</a>
+        </div>
     </div>
     <div class="ligne"></div>
 </header>

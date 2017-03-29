@@ -12,7 +12,7 @@ $user='root'; // nom d'utilisateur pour se connecter
 
 
 
-$passwd=''; // mot de passe de l'utilisateur pour se connecter
+$passwd='MhR27011997'; // mot de passe de l'utilisateur pour se connecter
 
             // A l'iut, généré automatiquement
 
