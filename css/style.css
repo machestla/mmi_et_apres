@@ -641,3 +641,17 @@ body {
     padding-left: 2%;
     text-align: center;
 }
+.resultat-ecole {
+    /*    text-align: center;
+    text-justify: left;*/
+    padding: 2%;
+}
+.lien-ecole {
+    text-decoration: none;
+    color: #e61471;
+}
+.lien-ecole:hover {
+    text-decoration: none;
+    color: #878786;
+}
+.
