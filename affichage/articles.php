@@ -27,7 +27,7 @@ include("boutons-accueil.php");
     while($line = $query->fetch()) {
         echo
            ' <div class="article col-md-4">
-                <a href="articleseul.php?id='.$line['ouvrelarticlestp'].'">;
+                <a href="articleseul.php?id='.$line['ouvrelarticlestp'].'">
                     <!--php -->
                     <div class="contenu">
                     

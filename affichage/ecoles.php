@@ -28,7 +28,7 @@ include("../divers/connexion.php");
                     <?php
     
     
-$sql = "SELECT DISTINCT * FROM formation JOIN tagdomaine ON idTagDomaine=tagdomaine.id JOIN type ON idTagType=type.id JOIN tagregion ON idTagRegion=tagregion.id"; // 
+$sql = "SELECT DISTINCT (domaine) FROM formation JOIN tagdomaine ON idTagDomaine=tagdomaine.id JOIN type ON idTagType=type.id JOIN tagregion ON idTagRegion=tagregion.id"; // 
 	$query = $pdo->prepare($sql); 
 	
                 

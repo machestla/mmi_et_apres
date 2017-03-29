@@ -64,18 +64,36 @@ include("../divers/connexion.php");
         ?>
 
             <div class="articles container-fluid">
-
-                <?php
-             $sql = "SELECT *, article.id AS ouvrelarticlestp FROM article JOIN auteur ON idAuteur=auteur.id JOIN tagdomaine ON idTagDomaine=tagdomaine.id JOIN tagmetier ON idTagMetier=tagmetier.id order by date desc";
+                <?php 
+    $sql = "SELECT *, article.id AS ouvrelarticlestp 
+             FROM article 
+             LIMIT 0,6;
+             JOIN auteur ON idAuteur=auteur.id 
+             JOIN tagdomaine ON idTagDomaine=tagdomaine.id 
+             JOIN tagmetier ON idTagMetier=tagmetier.id 
+             ORDER By date desc";
+    $query = $pdo->prepare($sql);
+    $query->execute();
+    $line = $query->fetch();
+    
+        echo '<div class="article col-md-4">
+<a href="articleseul.php?id='.$line['ouvrelarticlestp'].'">';                 
+    
+           if(isset($_POST['Au'])){
+               $sql = "SELECT *, article.id AS ouvrelarticlestp 
+             FROM article 
+             LIMIT 0,6;
+             JOIN auteur ON idAuteur=auteur.id 
+             JOIN tagdomaine ON idTagDomaine=tagdomaine.id 
+             JOIN tagmetier ON idTagMetier=tagmetier.id
+             WHERE domaine ='Audiovisuel'
+             ORDER By date desc";
     $query = $pdo->prepare($sql);
     $query->execute();
     while($line = $query->fetch()) {
+        
         echo
-           ' <div class="article col-md-4">
-                <a href="articleseul.php?id='.$line['ouvrelarticlestp'].'">
-                    <!--php -->
-                    <div class="contenu">
-                    
+                        '<div class="contenu">
                         <img src="'.$line['contenu_visuel'].'" />
                         <!--php-->
                         <div class="contenu-contenu">
@@ -94,15 +112,109 @@ include("../divers/connexion.php");
                         </div>
                          <div class="cache-opaque">
                          </div>
-                </a>
-    
-                 </div>
+                         </div>';
+                       }
+                    
+           }
+                elseif(isset($_POST['Co'])){
+               $sql = "SELECT *, article.id AS ouvrelarticlestp 
+             FROM article 
+             LIMIT 0,6; 
+             JOIN auteur ON idAuteur=auteur.id 
+             JOIN tagdomaine ON idTagDomaine=tagdomaine.id 
+             JOIN tagmetier ON idTagMetier=tagmetier.id
+             WHERE domaine='Communication'
+             ORDER By date desc";
+    $query = $pdo->prepare($sql);
+    $query->execute();
+    while($line = $query->fetch()) {
+        echo
+                        '<div class="contenu">
+            <img src="'.$line['contenu_visuel'].'" />
+                        <!--php-->
+                        <div class="contenu-contenu">
+                            <div class="contenu-date">
+                                <p>'.$line['date'].'</p>
+                                
+                            </div>
+                            <h4>'.$line['titre'].'</h4>
+                            <!--php-->
+                            <div class="resume">
+                                <p>'.$line['contenu_txt'].'</p>
+                            </div>
+                            <div class="btn-suite">
+                                <p>lire la suite</p>
+                            </div>
+                        </div>
+                         <div class="cache-opaque">
+                         </div>
+                         </div>';
+                       }
+                   
+           }
+                elseif(isset($_POST['We'])){
+               
+               $sql = "SELECT *, article.id AS ouvrelarticlestp 
+             FROM article 
+             LIMIT 0,6;
+             JOIN auteur ON idAuteur=auteur.id 
+             JOIN tagdomaine ON idTagDomaine=tagdomaine.id 
+             JOIN tagmetier ON idTagMetier=tagmetier.id
+             WHERE domaine='Web'
+             ORDER By date desc";
+    $query = $pdo->prepare($sql);
+    $query->execute();
+    while($line = $query->fetch()) {
+        echo
+               '<div class="contenu">
+            <img src="'.$line['contenu_visuel'].'" />
+                        <!--php-->
+                        <div class="contenu-contenu">
+                            <div class="contenu-date">
+                                <p>'.$line['date'].'</p>
+                                
+                            </div>
+                            <h4>'.$line['titre'].'</h4>
+                            <!--php-->
+                            <div class="resume">
+                                <p>'.$line['contenu_txt'].'</p>
+                            </div>
+                            <div class="btn-suite">
+                                <p>lire la suite</p>
+                            </div>
+                        </div>
+                         <div class="cache-opaque">
+                         </div>
+                         </div>';
+                       }
+                   
+           }
+                else{
+        echo
+           '<div class="contenu">
+            <img src="'.$line['contenu_visuel'].'" />
+                        <!--php-->
+                        <div class="contenu-contenu">
+                            <div class="contenu-date">
+                                <p>'.$line['date'].'</p>
+                                
+                            </div>
+                            <h4>'.$line['titre'].'</h4>
+                            <!--php-->
+                            <div class="resume">
+                                <p>'.$line['contenu_txt'].'</p>
+                            </div>
+                            <div class="btn-suite">
+                                <p>lire la suite</p>
+                            </div>
+                        </div>
+                         <div class="cache-opaque">
+                         </div>
+                         </div>';
+                       }
+                '</a>
             </div>';
-    }
         ?>
-
-
-
             </div>
 
 
@@ -169,17 +281,49 @@ include("../divers/connexion.php");
 
             <div>
 
-                <section class="formulaire">
+                <section id="contact" class="formulaire">
                     <div class="tittle titre-formulaire">
                         <h1>Nous contacter</h1></div>
-                    <form method="#" action="#">
+                    <form id="form" method="GET" action="#">
                         <input type="text" name="email" placeholder="email" class="block email" />
                         <textarea name="message" class="message" rows="10" cols="50" placeholder="message" class="block"> </textarea>
-                        <input type="submit" value="Envoyer" class="block btn envoyer" />
+                        <input name="valider" class='submit' type="submit" value="Envoyer" class="block btn envoyer" />
                     </form>
                 </section>
             </div>
-
+        <?php
+        if(isset($_GET['valider'])) { //Si on clique sur le bouton d'envoie de message
+            if(!empty($_POST['email']) && filter_var($_GET['email'], FILTER_VALIDATE_EMAIL) && !empty($_POST['message'])) {
+                $sql = "INSERT INTO mail (id, adresse, message) VALUES(NULL, ?, ?)";
+                $query = $pdo -> prepare($sql);
+                $query -> execute(array($_POST['email'], $_POST['message']));
+            };
+//            if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
+//                echo '<script>
+//                    $(document).ready(function() {
+//                        $(".submit").on("click",function() {
+//                            var url = $(this).prop("href");
+//                            $("#form").load(url);
+//                            event.preventDefault();
+//                        });
+//                    });
+//                    alert("Veuillez correctement renseigner votre adresse email");
+//                    </script>';
+//            }; // Si le champ de l'email ne contient pas une écriture de type "email", prévenir l'utilisateur
+//            if(empty($_POST['message'])){ // Si le champ de l'email ne contient pas une écriture de type "email",
+//                echo '<script>
+//                    $(document).ready(function() {
+//                        $(".submit").on("click",function() {
+//                            var url = $(this).prop("href");
+//                            $("#form").load(url);
+//                            event.preventDefault();
+//                        });
+//                    });
+//                    alert("Et votre message ? On veut savoir !");
+//                    </script>';// le préciser à l'utilisateur.
+//            };
+        }
+        ?>
 
             <?php
 include('footer.php');
