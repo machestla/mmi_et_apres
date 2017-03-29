@@ -14,7 +14,6 @@ include("../divers/connexion.php");
 
     <?php
 include("boutons-accueil.php");
-
 ?>
         <div class="articles-contenu">
 
@@ -27,7 +26,7 @@ include("boutons-accueil.php");
     while($line = $query->fetch()) {
         echo
            ' <div class="article col-md-4">
-                <a href="articleseul.php?id='.$line['ouvrelarticlestp'].'">;
+                <a href="articleseul.php?id='.$line['ouvrelarticlestp'].'">
                     <!--php -->
                     <div class="contenu">
                     
@@ -41,7 +40,7 @@ include("boutons-accueil.php");
                             <h4>'.$line['titre'].'</h4>
                             <!--php-->
                             <div class="resume">
-                                <p>'.$line['contenu_txt'].'</p>
+                                <p>'.$line['resume'].'</p>
                             </div>
                             <div class="btn-suite">
                                 <p>lire la suite</p>
