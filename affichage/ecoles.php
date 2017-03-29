@@ -56,7 +56,7 @@ $sql = "SELECT DISTINCT (domaine) FROM formation JOIN tagdomaine ON idTagDomaine
                     <?php
     
     
-$sql = "SELECT DISTINCT * FROM formation JOIN tagdomaine ON idTagDomaine=tagdomaine.id JOIN type ON idTagType=type.id JOIN tagregion ON idTagRegion=tagregion.id"; // 
+$sql = "SELECT DISTINCT (type) FROM formation JOIN tagdomaine ON idTagDomaine=tagdomaine.id JOIN type ON idTagType=type.id JOIN tagregion ON idTagRegion=tagregion.id"; // 
 	$query = $pdo->prepare($sql); 
 	
                 
@@ -79,7 +79,7 @@ $sql = "SELECT DISTINCT * FROM formation JOIN tagdomaine ON idTagDomaine=tagdoma
                     <?php
     
     
-$sql = "SELECT DISTINCT * FROM formation JOIN tagdomaine ON idTagDomaine=tagdomaine.id JOIN type ON idTagType=type.id JOIN tagregion ON idTagRegion=tagregion.id"; // 
+$sql = "SELECT DISTINCT (region) FROM formation JOIN tagdomaine ON idTagDomaine=tagdomaine.id JOIN type ON idTagType=type.id JOIN tagregion ON idTagRegion=tagregion.id"; // 
 	$query = $pdo->prepare($sql); 
 	
                 
@@ -107,14 +107,18 @@ $sql = "SELECT DISTINCT * FROM formation JOIN tagdomaine ON idTagDomaine=tagdoma
 
             <?php
             
-            /*************************domaine*****************************/
+
+           
             
-         if(isset($_GET['domaine'])) {
-	$sql = "SELECT *, formation.id AS idformation FROM formation JOIN tagdomaine ON idTagDomaine=tagdomaine.id JOIN tagregion ON idTagRegion=tagregion.id JOIN type ON idTagType=type.id WHERE domaine=?";  // 
+         if(isset($_GET['domaine']) ||
+            isset($_GET['type']) ||
+            isset($_GET['region'])) {
+             
+	$sql = "SELECT *, formation.id AS idformation FROM formation JOIN tagdomaine ON idTagDomaine=tagdomaine.id JOIN tagregion ON idTagRegion=tagregion.id JOIN type ON idTagType=type.id WHERE domaine=? AND type=? AND region=?";  // 
 
 	$query = $pdo->prepare($sql); // Etpae 1 : On prépare la requête
 	
-	$query->execute(array($_GET['domaine'])); // Etape 2 :On l'exécute. 
+	$query->execute(array($_GET['domaine'],$_GET['type'],$_GET['region'])); // Etape 2 :On l'exécute. 
                        // Pas de paramètre dans la requête
 	
 	
@@ -122,7 +126,7 @@ $sql = "SELECT DISTINCT * FROM formation JOIN tagdomaine ON idTagDomaine=tagdoma
 		echo
            ' <div class=" col-md-4">
            <h3>'.$line['NomEcole'].'</h3>
-                <a href="'.$line['Lien'].'">aller vers le site de l\'école</a>
+                <a class="lien-ecole" href="'.$line['Lien'].'">aller vers le site de l\'école</a>
                 <p>'.$line['Ville'].'</p>
                 <p>'.$line['region'].'</p>
                     <p>'.$line['domaine'].'</p>
@@ -131,77 +135,19 @@ $sql = "SELECT DISTINCT * FROM formation JOIN tagdomaine ON idTagDomaine=tagdoma
     }
 
                 }
-        
-              /*  <!---------------------------fin domaine---------------------------->*/
-
-
-
-
-               /* <!-------------------------type----------------------------------->*/
-                
-            elseif(isset($_GET['type'])) {
-	$sql = "SELECT *, formation.id AS idformation FROM formation JOIN tagdomaine ON idTagDomaine=tagdomaine.id JOIN tagregion ON idTagRegion=tagregion.id JOIN type ON idTagType=type.id WHERE type=?";  // 
-
-	$query = $pdo->prepare($sql); // Etpae 1 : On prépare la requête
-	
-	$query->execute(array($_GET['type'])); // Etape 2 :On l'exécute. 
-                       // Pas de paramètre dans la requête
-	
-	
-	while($line = $query->fetch()) { // Etape 3 : on parcours le résultat
-		echo
-           ' <div class=" col-md-4">
-           <h3>'.$line['NomEcole'].'</h3>
-                <a href="'.$line['Lien'].'">aller vers le site de l\'école</a>
-                <p>'.$line['Ville'].'</p>
-                <p>'.$line['region'].'</p>
-                    <p>'.$line['domaine'].'</p>
-                     <p>'.$line['type'].'</p>
-                    
-                    </div>';    
-    }
-
-                }
-                
-
-               /* <!-------------------------------fin type------------------------->
-
-                <!--------------------------------region---------------------------------->*/
-
-
-                
-            elseif(isset($_GET['region'])) {
-	$sql = "SELECT *, formation.id AS idformation FROM formation JOIN tagdomaine ON idTagDomaine=tagdomaine.id JOIN tagregion ON idTagRegion=tagregion.id JOIN type ON idTagType=type.id WHERE region=?";  // 
-
-	$query = $pdo->prepare($sql); // Etpae 1 : On prépare la requête
-	
-	$query->execute(array($_GET['region'])); // Etape 2 :On l'exécute. 
-                       // Pas de paramètre dans la requête
-	
-	
-	while($line = $query->fetch()) { // Etape 3 : on parcours le résultat
-		echo
-           ' <div class=" col-md-4">
-           <h3>'.$line['NomEcole'].'</h3>
-                <a href="'.$line['Lien'].'">aller vers le site de l\'école</a>
-                <p>'.$line['Ville'].'</p>
-                <p>'.$line['region'].'</p>
-                    <p>'.$line['domaine'].'</p>
-                     <p>'.$line['type'].'</p>
-                    
-                    </div>';    
-    }
-
-                }
+    
+          
+             
                 ?>
 
-                <!------------------------------fin region-------------------------------->
 
 
 
 
 
+                <!--   <div class="padding-footer">
 
+                </div>-->
 
 
                 <!---->
@@ -209,5 +155,6 @@ $sql = "SELECT DISTINCT * FROM formation JOIN tagdomaine ON idTagDomaine=tagdoma
                 <!---->
 
                 <?php
+            
 include('footer.php');
 ?>

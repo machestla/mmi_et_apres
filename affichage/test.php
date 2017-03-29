@@ -107,14 +107,19 @@ $sql = "SELECT DISTINCT * FROM formation JOIN tagdomaine ON idTagDomaine=tagdoma
 
             <?php
             
+            /*if(!isset)*/
+            
             /*************************domaine*****************************/
             
-         if(isset($_GET['domaine'])) {
-	$sql = "SELECT *, formation.id AS idformation FROM formation JOIN tagdomaine ON idTagDomaine=tagdomaine.id JOIN tagregion ON idTagRegion=tagregion.id JOIN type ON idTagType=type.id WHERE domaine=?";  // 
+         if(isset($_GET['domaine']) ||
+            isset($_GET['type']) ||
+            isset($_GET['region'])) {
+             
+	$sql = "SELECT *, formation.id AS idformation FROM formation JOIN tagdomaine ON idTagDomaine=tagdomaine.id JOIN tagregion ON idTagRegion=tagregion.id JOIN type ON idTagType=type.id WHERE domaine=? AND type=? AND region=?";  // 
 
 	$query = $pdo->prepare($sql); // Etpae 1 : On prépare la requête
 	
-	$query->execute(array($_GET['domaine'])); // Etape 2 :On l'exécute. 
+	$query->execute(array($_GET['domaine'],$_GET['type'],$_GET['region'])); // Etape 2 :On l'exécute. 
                        // Pas de paramètre dans la requête
 	
 	
@@ -139,7 +144,7 @@ $sql = "SELECT DISTINCT * FROM formation JOIN tagdomaine ON idTagDomaine=tagdoma
 
                /* <!-------------------------type----------------------------------->*/
                 
-            elseif(isset($_GET['type'])) {
+     /*       elseif(isset($_GET['type'])) {
 	$sql = "SELECT *, formation.id AS idformation FROM formation JOIN tagdomaine ON idTagDomaine=tagdomaine.id JOIN tagregion ON idTagRegion=tagregion.id JOIN type ON idTagType=type.id WHERE type=?";  // 
 
 	$query = $pdo->prepare($sql); // Etpae 1 : On prépare la requête
@@ -161,7 +166,7 @@ $sql = "SELECT DISTINCT * FROM formation JOIN tagdomaine ON idTagDomaine=tagdoma
                     </div>';    
     }
 
-                }
+                }*/
                 
 
                /* <!-------------------------------fin type------------------------->
@@ -170,7 +175,7 @@ $sql = "SELECT DISTINCT * FROM formation JOIN tagdomaine ON idTagDomaine=tagdoma
 
 
                 
-            elseif(isset($_GET['region'])) {
+/*            elseif(isset($_GET['region'])) {
 	$sql = "SELECT *, formation.id AS idformation FROM formation JOIN tagdomaine ON idTagDomaine=tagdomaine.id JOIN tagregion ON idTagRegion=tagregion.id JOIN type ON idTagType=type.id WHERE region=?";  // 
 
 	$query = $pdo->prepare($sql); // Etpae 1 : On prépare la requête
@@ -192,7 +197,7 @@ $sql = "SELECT DISTINCT * FROM formation JOIN tagdomaine ON idTagDomaine=tagdoma
                     </div>';    
     }
 
-                }
+                }*/
                 ?>
 
                 <!------------------------------fin region-------------------------------->
@@ -209,5 +214,6 @@ $sql = "SELECT DISTINCT * FROM formation JOIN tagdomaine ON idTagDomaine=tagdoma
                 <!---->
 
                 <?php
+            
 include('footer.php');
 ?>
