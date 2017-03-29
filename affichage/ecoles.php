@@ -121,7 +121,7 @@ $sql = "SELECT DISTINCT (region) FROM formation JOIN tagdomaine ON idTagDomaine=
 	
 	while($line = $query->fetch()) { // Etape 3 : on parcours le résultat
 		echo
-           ' <div class=" col-md-4">
+           ' <div class=" col-md-4 resultat-ecole">
            <h3>'.$line['NomEcole'].'</h3>
                 <a class="lien-ecole" href="'.$line['Lien'].'">aller vers le site de l\'école</a>
                 <p>'.$line['Ville'].'</p>
@@ -148,7 +148,7 @@ $sql = "SELECT DISTINCT (region) FROM formation JOIN tagdomaine ON idTagDomaine=
 	
 	while($line = $query->fetch()) { // Etape 3 : on parcours le résultat
 		echo
-           ' <div class=" col-md-4">
+           ' <div class=" col-md-4 resultat-ecole">
            <h3>'.$line['NomEcole'].'</h3>
                 <a class="lien-ecole" href="'.$line['Lien'].'">aller vers le site de l\'école</a>
                 <p>'.$line['Ville'].'</p>

@@ -94,7 +94,7 @@ include("../divers/connexion.php");
  if(empty($_GET['web']) &&
             empty($_GET['audiovisuel']) &&
             empty($_GET['communication'])){
-    $sql = "SELECT *, article.id AS ouvrelarticlestp FROM article JOIN auteur ON idAuteur=auteur.id JOIN tagdomaine ON idTagDomaine=tagdomaine.id JOIN tagmetier ON idTagMetier=tagmetier.id";
+    $sql = "SELECT *, article.id AS ouvrelarticlestp FROM article LIMIT 0,6; JOIN auteur ON idAuteur=auteur.id JOIN tagdomaine ON idTagDomaine=tagdomaine.id JOIN tagmetier ON idTagMetier=tagmetier.id";
     
     
 $query = $pdo->prepare($sql); // Etpae 1 : On prépare la requête
@@ -119,7 +119,7 @@ $query = $pdo->prepare($sql); // Etpae 1 : On prépare la requête
                             <h4>'.$line['titre'].'</h4>
                             <!--php-->
                             <div class="resume">
-                                <p>'.$line['contenu_txt'].'</p>
+                                <p>'.$line['resume'].'</p>
                             </div>
                             <div class="btn-suite">
                                 <p>lire la suite</p>
@@ -162,7 +162,7 @@ $query = $pdo->prepare($sql); // Etpae 1 : On prépare la requête
                             <h4>'.$line['titre'].'</h4>
                             <!--php-->
                             <div class="resume">
-                                <p>'.$line['contenu_txt'].'</p>
+                                <p>'.$line['resume'].'</p>
                             </div>
                             <div class="btn-suite">
                                 <p>lire la suite</p>
@@ -206,7 +206,7 @@ $query = $pdo->prepare($sql); // Etpae 1 : On prépare la requête
                             <h4>'.$line['titre'].'</h4>
                             <!--php-->
                             <div class="resume">
-                                <p>'.$line['contenu_txt'].'</p>
+                                <p>'.$line['resume'].'</p>
                             </div>
                             <div class="btn-suite">
                                 <p>lire la suite</p>
@@ -249,7 +249,7 @@ $query = $pdo->prepare($sql); // Etpae 1 : On prépare la requête
                             <h4>'.$line['titre'].'</h4>
                             <!--php-->
                             <div class="resume">
-                                <p>'.$line['contenu_txt'].'</p>
+                                <p>'.$line['resume'].'</p>
                             </div>
                             <div class="btn-suite">
                                 <p>lire la suite</p>
@@ -350,14 +350,18 @@ $query = $pdo->prepare($sql); // Etpae 1 : On prépare la requête
                     </form>
                 </section>
             </div>
+
+
             <?php
+            
+
         if(isset($_GET['valider'])) { //Si on clique sur le bouton d'envoie de message
-            if(!empty($_POST['email']) && filter_var($_GET['email'], FILTER_VALIDATE_EMAIL) && !empty($_POST['message'])) {
+            if(!empty($_POST['adresse']) && filter_var($_GET['adresse'], FILTER_VALIDATE_EMAIL) && !empty($_POST['message'])) {
                 $sql = "INSERT INTO mail (id, adresse, message) VALUES(NULL, ?, ?)";
                 $query = $pdo -> prepare($sql);
-                $query -> execute(array($_POST['email'], $_POST['message']));
+                $query -> execute(array($_POST['adresse'], $_POST['message']));
             };
-//            if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
+            /*if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){*/
 //                echo '<script>
 //                    $(document).ready(function() {
 //                        $(".submit").on("click",function() {
@@ -381,10 +385,7 @@ $query = $pdo->prepare($sql); // Etpae 1 : On prépare la requête
 //                    alert("Et votre message ? On veut savoir !");
 //                    </script>';// le préciser à l'utilisateur.
 //            };
+        
         }
-        ?>
-
-                <?php
-include('footer.php');
-//    include("/header-footer/header.html");
-?>
+   
+ include('footer.php'); // include("/header-footer/header.html"); ?>

@@ -74,7 +74,7 @@ $query = $pdo->prepare($sql); // Etpae 1 : On prépare la requête
                             <h4>'.$line['titre'].'</h4>
                             <!--php-->
                             <div class="resume">
-                                <p>'.$line['contenu_txt'].'</p>
+                                <p>'.$line['resume'].'</p>
                             </div>
                             <div class="btn-suite">
                                 <p>lire la suite</p>
@@ -117,7 +117,7 @@ $query = $pdo->prepare($sql); // Etpae 1 : On prépare la requête
                             <h4>'.$line['titre'].'</h4>
                             <!--php-->
                             <div class="resume">
-                                <p>'.$line['contenu_txt'].'</p>
+                                <p>'.$line['resume'].'</p>
                             </div>
                             <div class="btn-suite">
                                 <p>lire la suite</p>
@@ -161,7 +161,7 @@ $query = $pdo->prepare($sql); // Etpae 1 : On prépare la requête
                             <h4>'.$line['titre'].'</h4>
                             <!--php-->
                             <div class="resume">
-                                <p>'.$line['contenu_txt'].'</p>
+                                <p>'.$line['resume'].'</p>
                             </div>
                             <div class="btn-suite">
                                 <p>lire la suite</p>
@@ -204,7 +204,7 @@ $query = $pdo->prepare($sql); // Etpae 1 : On prépare la requête
                             <h4>'.$line['titre'].'</h4>
                             <!--php-->
                             <div class="resume">
-                                <p>'.$line['contenu_txt'].'</p>
+                                <p>'.$line['resume'].'</p>
                             </div>
                             <div class="btn-suite">
                                 <p>lire la suite</p>

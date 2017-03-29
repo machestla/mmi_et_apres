@@ -1,206 +1,14 @@
 <?php
-include('header.php');
-include("../divers/connexion.php");
-/*include('boutons.php');*/
-?>
 
-
-
-    <head>
-        <meta charset="utf-8" />
-        <link href="../css/style.css" rel="stylesheet" type="text/css" />
-        <link href="../css/bootstrap.css" rel="stylesheet" type="text/css" />
-        <title>Écoles</title>
-
-    </head>
-
-
-
-    <body>
-        <div class="item active">
-            <img src="../img/ecoles.jpg" alt="img1" class="img-responsive" width="100%">
-        </div>
-
-        <form action="#" method="get" class="form-choix">
-            <form action="#" method="get" class="form-choix">
-                <select name='domaine'>
-
-                    <?php
-    
-    
-$sql = "SELECT DISTINCT * FROM formation JOIN tagdomaine ON idTagDomaine=tagdomaine.id JOIN type ON idTagType=type.id JOIN tagregion ON idTagRegion=tagregion.id"; // 
-	$query = $pdo->prepare($sql); 
-	
-                
-	$query->execute(); 
-	
-	
-	while($line = $query->fetch()) {
-		$domaine = $line['domaine'];
-        echo "<option>$domaine</option>";
-        
-	}       
+if(isset($_GET['Valider'])) { // Le formulaire a été soumis
+	if((!isset($_GET['email'])) || filter_var($_GET['email'], FILTER_VALIDATE_EMAIL)==false) {
+		$goodForm = false; // Now, it is not good
+		$error = "Mail invalide";
+	}
 
     
     ?>
 
-                </select>
-
-
-
-
-
-
-
-                <select name='type'>
-                    <?php
-    
-    
-$sql = "SELECT DISTINCT * FROM formation JOIN tagdomaine ON idTagDomaine=tagdomaine.id JOIN type ON idTagType=type.id JOIN tagregion ON idTagRegion=tagregion.id"; // 
-	$query = $pdo->prepare($sql); 
-	
-                
-	$query->execute(); 
-	
-	
-	while($line = $query->fetch()) {
-		$type = $line['type'];
-        echo "<option>$type</option>";
-        
-	}       
-
-    
-    ?>
-
-                </select>
-
-
-                <select name='region'>
-                    <?php
-    
-    
-$sql = "SELECT DISTINCT * FROM formation JOIN tagdomaine ON idTagDomaine=tagdomaine.id JOIN type ON idTagType=type.id JOIN tagregion ON idTagRegion=tagregion.id"; // 
-	$query = $pdo->prepare($sql); 
-	
-                
-	$query->execute(); 
-	
-	
-	while($line = $query->fetch()) {
-		$region = $line['region'];
-        echo "<option>$region</option>";
-        
-	}       
-
-    
-    ?>
-
-                </select>
-
-
-
-
-
-                <input type='submit' class="btn" />
-            </form>
-
-
-            <?php
-            
-            /*if(!isset)*/
-            
-            /*************************domaine*****************************/
-            
-         if(isset($_GET['domaine']) ||
-            isset($_GET['type']) ||
-            isset($_GET['region'])) {
-             
-	$sql = "SELECT *, formation.id AS idformation FROM formation JOIN tagdomaine ON idTagDomaine=tagdomaine.id JOIN tagregion ON idTagRegion=tagregion.id JOIN type ON idTagType=type.id WHERE domaine=? AND type=? AND region=?";  // 
-
-	$query = $pdo->prepare($sql); // Etpae 1 : On prépare la requête
-	
-	$query->execute(array($_GET['domaine'],$_GET['type'],$_GET['region'])); // Etape 2 :On l'exécute. 
-                       // Pas de paramètre dans la requête
-	
-	
-	while($line = $query->fetch()) { // Etape 3 : on parcours le résultat
-		echo
-           ' <div class=" col-md-4">
-           <h3>'.$line['NomEcole'].'</h3>
-                <a href="'.$line['Lien'].'">aller vers le site de l\'école</a>
-                <p>'.$line['Ville'].'</p>
-                <p>'.$line['region'].'</p>
-                    <p>'.$line['domaine'].'</p>
-                    <p>'.$line['type'].'</p>
-                    </div>';    
-    }
-
-                }
-        
-              /*  <!---------------------------fin domaine---------------------------->*/
-
-
-
-
-               /* <!-------------------------type----------------------------------->*/
-                
-     /*       elseif(isset($_GET['type'])) {
-	$sql = "SELECT *, formation.id AS idformation FROM formation JOIN tagdomaine ON idTagDomaine=tagdomaine.id JOIN tagregion ON idTagRegion=tagregion.id JOIN type ON idTagType=type.id WHERE type=?";  // 
-
-	$query = $pdo->prepare($sql); // Etpae 1 : On prépare la requête
-	
-	$query->execute(array($_GET['type'])); // Etape 2 :On l'exécute. 
-                       // Pas de paramètre dans la requête
-	
-	
-	while($line = $query->fetch()) { // Etape 3 : on parcours le résultat
-		echo
-           ' <div class=" col-md-4">
-           <h3>'.$line['NomEcole'].'</h3>
-                <a href="'.$line['Lien'].'">aller vers le site de l\'école</a>
-                <p>'.$line['Ville'].'</p>
-                <p>'.$line['region'].'</p>
-                    <p>'.$line['domaine'].'</p>
-                     <p>'.$line['type'].'</p>
-                    
-                    </div>';    
-    }
-
-                }*/
-                
-
-               /* <!-------------------------------fin type------------------------->
-
-                <!--------------------------------region---------------------------------->*/
-
-
-                
-/*            elseif(isset($_GET['region'])) {
-	$sql = "SELECT *, formation.id AS idformation FROM formation JOIN tagdomaine ON idTagDomaine=tagdomaine.id JOIN tagregion ON idTagRegion=tagregion.id JOIN type ON idTagType=type.id WHERE region=?";  // 
-
-	$query = $pdo->prepare($sql); // Etpae 1 : On prépare la requête
-	
-	$query->execute(array($_GET['region'])); // Etape 2 :On l'exécute. 
-                       // Pas de paramètre dans la requête
-	
-	
-	while($line = $query->fetch()) { // Etape 3 : on parcours le résultat
-		echo
-           ' <div class=" col-md-4">
-           <h3>'.$line['NomEcole'].'</h3>
-                <a href="'.$line['Lien'].'">aller vers le site de l\'école</a>
-                <p>'.$line['Ville'].'</p>
-                <p>'.$line['region'].'</p>
-                    <p>'.$line['domaine'].'</p>
-                     <p>'.$line['type'].'</p>
-                    
-                    </div>';    
-    }
-
-                }*/
-                ?>
-
-                <!------------------------------fin region-------------------------------->
 
 
 
@@ -209,11 +17,42 @@ $sql = "SELECT DISTINCT * FROM formation JOIN tagdomaine ON idTagDomaine=tagdoma
 
 
 
-                <!---->
 
-                <!---->
+    <!--formulaire mache-->
 
-                <?php
-            
-include('footer.php');
-?>
+
+    <?php
+        if(isset($_GET['valider'])) { //Si on clique sur le bouton d'envoie de message
+            if(!empty($_POST['email']) && filter_var($_GET['email'], FILTER_VALIDATE_EMAIL) && !empty($_POST['message'])) {
+                $sql = "INSERT INTO mail (id, adresse, message) VALUES(NULL, ?, ?)";
+                $query = $pdo -> prepare($sql);
+                $query -> execute(array($_POST['email'], $_POST['message']));
+            };
+//            if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
+//                echo '<script>
+//                    $(document).ready(function() {
+//                        $(".submit").on("click",function() {
+//                            var url = $(this).prop("href");
+//                            $("#form").load(url);
+//                            event.preventDefault();
+//                        });
+//                    });
+//                    alert("Veuillez correctement renseigner votre adresse email");
+//                    </script>';
+//            }; // Si le champ de l'email ne contient pas une écriture de type "email", prévenir l'utilisateur
+//            if(empty($_POST['message'])){ // Si le champ de l'email ne contient pas une écriture de type "email",
+//                echo '<script>
+//                    $(document).ready(function() {
+//                        $(".submit").on("click",function() {
+//                            var url = $(this).prop("href");
+//                            $("#form").load(url);
+//                            event.preventDefault();
+//                        });
+//                    });
+//                    alert("Et votre message ? On veut savoir !");
+//                    </script>';// le préciser à l'utilisateur.
+//            };
+        }
+        ?>
+
+        <?php
