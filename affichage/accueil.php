@@ -55,41 +55,60 @@ include("../divers/connexion.php");
         <!-- Présentation articles -->
         <div class="tittle">
             <h1>Articles</h1></div>
-        <?php
-        include('boutons-accueil.php');
-        ?>
+
+
+
+        <div class="articles-contenu">
 
             <div class="articles container-fluid">
-                <?php 
-    $sql = "SELECT *, article.id AS ouvrelarticlestp 
-             FROM article 
-             LIMIT 0,6;
-             JOIN auteur ON idAuteur=auteur.id 
-             JOIN tagdomaine ON idTagDomaine=tagdomaine.id 
-             JOIN tagmetier ON idTagMetier=tagmetier.id 
-             ORDER By date desc";
-    $query = $pdo->prepare($sql);
-    $query->execute();
-    $line = $query->fetch();
+
+
+                <div class="button">
+
+                    <form method="get" action="">
+
+                        <input type="submit" name="all" value="tout" class="btn float" />
+                    </form>
+
+                    <form method="get" action="">
+
+                        <input type="submit" name="audiovisuel" value="Audiovisuel" class="btn float" />
+                    </form>
+
+                    <form method="get" action="">
+
+                        <input type="submit" name="communication" value="Communication" class="btn float" />
+                    </form>
+
+                    <form method="get" action="">
+
+                        <input type="submit" name="web" value="web" class="btn float" />
+                    </form>
+                </div>
+
+                <?php
+
+           
+
+            
+ if(empty($_GET['web']) &&
+            empty($_GET['audiovisuel']) &&
+            empty($_GET['communication'])){
+    $sql = "SELECT *, article.id AS ouvrelarticlestp FROM article JOIN auteur ON idAuteur=auteur.id JOIN tagdomaine ON idTagDomaine=tagdomaine.id JOIN tagmetier ON idTagMetier=tagmetier.id";
     
-        echo '<div class="article col-md-4">
-<a href="articleseul.php?id='.$line['ouvrelarticlestp'].'">';                 
     
-           if(isset($_POST['Au'])){
-               $sql = "SELECT *, article.id AS ouvrelarticlestp 
-             FROM article 
-             LIMIT 0,6;
-             JOIN auteur ON idAuteur=auteur.id 
-             JOIN tagdomaine ON idTagDomaine=tagdomaine.id 
-             JOIN tagmetier ON idTagMetier=tagmetier.id
-             WHERE domaine ='Audiovisuel'
-             ORDER By date desc";
-    $query = $pdo->prepare($sql);
-    $query->execute();
+$query = $pdo->prepare($sql); // Etpae 1 : On prépare la requête
+	
+	$query->execute();
+    
     while($line = $query->fetch()) {
         
-        echo
-                        '<div class="contenu">
+             echo
+           ' <div class="article col-md-4">
+                <a href="articleseul.php?id='.$line['ouvrelarticlestp'].'">
+                    <!--php -->
+                    <div class="contenu">
+                    
                         <img src="'.$line['contenu_visuel'].'" />
                         <!--php-->
                         <div class="contenu-contenu">
@@ -100,42 +119,6 @@ include("../divers/connexion.php");
                             <h4>'.$line['titre'].'</h4>
                             <!--php-->
                             <div class="resume">
-                                <p>'.$line['resume'].'</p>
-                            </div>
-                            <div class="btn-suite">
-                                <p>lire la suite</p>
-                            </div>
-                        </div>
-                         <div class="cache-opaque">
-                         </div>
-                         </div>';
-                       }
-                    
-           }
-                elseif(isset($_POST['Co'])){
-               $sql = "SELECT *, article.id AS ouvrelarticlestp 
-             FROM article 
-             LIMIT 0,6; 
-             JOIN auteur ON idAuteur=auteur.id 
-             JOIN tagdomaine ON idTagDomaine=tagdomaine.id 
-             JOIN tagmetier ON idTagMetier=tagmetier.id
-             WHERE domaine='Communication'
-             ORDER By date desc";
-    $query = $pdo->prepare($sql);
-    $query->execute();
-    while($line = $query->fetch()) {
-        echo
-                        '<div class="contenu">
-            <img src="'.$line['contenu_visuel'].'" />
-                        <!--php-->
-                        <div class="contenu-contenu">
-                            <div class="contenu-date">
-                                <p>'.$line['date'].'</p>
-                                
-                            </div>
-                            <h4>'.$line['titre'].'</h4>
-                            <!--php-->
-                            <div class="resume">
                                 <p>'.$line['contenu_txt'].'</p>
                             </div>
                             <div class="btn-suite">
@@ -144,73 +127,153 @@ include("../divers/connexion.php");
                         </div>
                          <div class="cache-opaque">
                          </div>
-                         </div>';
-                       }
-                   
-           }
-                elseif(isset($_POST['We'])){
-               
-               $sql = "SELECT *, article.id AS ouvrelarticlestp 
-             FROM article 
-             LIMIT 0,6;
-             JOIN auteur ON idAuteur=auteur.id 
-             JOIN tagdomaine ON idTagDomaine=tagdomaine.id 
-             JOIN tagmetier ON idTagMetier=tagmetier.id
-             WHERE domaine='Web'
-             ORDER By date desc";
-    $query = $pdo->prepare($sql);
-    $query->execute();
-    while($line = $query->fetch()) {
-        echo
-               '<div class="contenu">
-            <img src="'.$line['contenu_visuel'].'" />
-                        <!--php-->
-                        <div class="contenu-contenu">
-                            <div class="contenu-date">
-                                <p>'.$line['date'].'</p>
-                                
-                            </div>
-                            <h4>'.$line['titre'].'</h4>
-                            <!--php-->
-                            <div class="resume">
-                                <p>'.$line['contenu_txt'].'</p>
-                            </div>
-                            <div class="btn-suite">
-                                <p>lire la suite</p>
-                            </div>
-                        </div>
-                         <div class="cache-opaque">
-                         </div>
-                         </div>';
-                       }
-                   
-           }
-                else{
-        echo
-           '<div class="contenu">
-            <img src="'.$line['contenu_visuel'].'" />
-                        <!--php-->
-                        <div class="contenu-contenu">
-                            <div class="contenu-date">
-                                <p>'.$line['date'].'</p>
-                                
-                            </div>
-                            <h4>'.$line['titre'].'</h4>
-                            <!--php-->
-                            <div class="resume">
-                                <p>'.$line['contenu_txt'].'</p>
-                            </div>
-                            <div class="btn-suite">
-                                <p>lire la suite</p>
-                            </div>
-                        </div>
-                         <div class="cache-opaque">
-                         </div>
-                         </div>';
-                       }
-                '</a>
+                </a>
+    
+                 </div>
             </div>';
+    }
+}
+    
+elseif(!empty($_GET['communication'])){
+
+    
+    $sql = "SELECT *, article.id AS ouvrelarticlestp FROM article JOIN auteur ON idAuteur=auteur.id JOIN tagdomaine ON idTagDomaine=tagdomaine.id JOIN tagmetier ON idTagMetier=tagmetier.id WHERE domaine='communication'";
+    
+    
+$query = $pdo->prepare($sql); // Etpae 1 : On prépare la requête
+	
+	$query->execute();
+    
+    while($line = $query->fetch()) {
+        
+             echo
+           ' <div class="article col-md-4">
+                <a href="articleseul.php?id='.$line['ouvrelarticlestp'].'">
+                    <!--php -->
+                    <div class="contenu">
+                    
+                        <img src="'.$line['contenu_visuel'].'" />
+                        <!--php-->
+                        <div class="contenu-contenu">
+                            <div class="contenu-date">
+                                <p>'.$line['date'].'</p>
+                                
+                            </div>
+                            <h4>'.$line['titre'].'</h4>
+                            <!--php-->
+                            <div class="resume">
+                                <p>'.$line['contenu_txt'].'</p>
+                            </div>
+                            <div class="btn-suite">
+                                <p>lire la suite</p>
+                            </div>
+                        </div>
+                         <div class="cache-opaque">
+                         </div>
+                </a>
+    
+                 </div>
+            </div>';
+    }
+}
+ 
+
+elseif(!empty($_GET['audiovisuel'])){
+
+    
+    $sql = "SELECT *, article.id AS ouvrelarticlestp FROM article JOIN auteur ON idAuteur=auteur.id JOIN tagdomaine ON idTagDomaine=tagdomaine.id JOIN tagmetier ON idTagMetier=tagmetier.id WHERE domaine='audiovisuel'";
+    
+    
+$query = $pdo->prepare($sql); // Etpae 1 : On prépare la requête
+	
+	$query->execute();
+    
+    while($line = $query->fetch()) {
+        
+             echo
+           ' <div class="article col-md-4">
+                <a href="articleseul.php?id='.$line['ouvrelarticlestp'].'">
+                    <!--php -->
+                    <div class="contenu">
+                    
+                        <img src="'.$line['contenu_visuel'].'" />
+                        <!--php-->
+                        <div class="contenu-contenu">
+                            <div class="contenu-date">
+                                <p>'.$line['date'].'</p>
+                                
+                            </div>
+                            <h4>'.$line['titre'].'</h4>
+                            <!--php-->
+                            <div class="resume">
+                                <p>'.$line['contenu_txt'].'</p>
+                            </div>
+                            <div class="btn-suite">
+                                <p>lire la suite</p>
+                            </div>
+                        </div>
+                         <div class="cache-opaque">
+                         </div>
+                </a>
+    
+                 </div>
+            </div>';
+    }
+}
+
+elseif(!empty($_GET['web'])){
+
+    
+    $sql = "SELECT *, article.id AS ouvrelarticlestp FROM article JOIN auteur ON idAuteur=auteur.id JOIN tagdomaine ON idTagDomaine=tagdomaine.id JOIN tagmetier ON idTagMetier=tagmetier.id WHERE domaine='web'";
+    
+    
+$query = $pdo->prepare($sql); // Etpae 1 : On prépare la requête
+	
+	$query->execute();
+    
+    while($line = $query->fetch()) {
+        
+             echo
+           ' <div class="article col-md-4">
+                <a href="articleseul.php?id='.$line['ouvrelarticlestp'].'">
+                    <!--php -->
+                    <div class="contenu">
+                    
+                        <img src="'.$line['contenu_visuel'].'" />
+                        <!--php-->
+                        <div class="contenu-contenu">
+                            <div class="contenu-date">
+                                <p>'.$line['date'].'</p>
+                                
+                            </div>
+                            <h4>'.$line['titre'].'</h4>
+                            <!--php-->
+                            <div class="resume">
+                                <p>'.$line['contenu_txt'].'</p>
+                            </div>
+                            <div class="btn-suite">
+                                <p>lire la suite</p>
+                            </div>
+                        </div>
+                         <div class="cache-opaque">
+                         </div>
+                </a>
+    
+                 </div>
+            </div>';
+    }
+}
+
+
+
+
+
         ?>
+
+
+
+
+
             </div>
 
 
@@ -287,7 +350,6 @@ include("../divers/connexion.php");
                     </form>
                 </section>
             </div>
-
             <?php
         if(isset($_GET['valider'])) { //Si on clique sur le bouton d'envoie de message
             if(!empty($_POST['email']) && filter_var($_GET['email'], FILTER_VALIDATE_EMAIL) && !empty($_POST['message'])) {
@@ -321,41 +383,8 @@ include("../divers/connexion.php");
 //            };
         }
         ?>
-                <?php
-        if(isset($_GET['valider'])) { //Si on clique sur le bouton d'envoie de message
-            if(!empty($_POST['email']) && filter_var($_GET['email'], FILTER_VALIDATE_EMAIL) && !empty($_POST['message'])) {
-                $sql = "INSERT INTO mail (id, adresse, message) VALUES(NULL, ?, ?)";
-                $query = $pdo -> prepare($sql);
-                $query -> execute(array($_POST['email'], $_POST['message']));
-            };
-//            if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
-//                echo '<script>
-//                    $(document).ready(function() {
-//                        $(".submit").on("click",function() {
-//                            var url = $(this).prop("href");
-//                            $("#form").load(url);
-//                            event.preventDefault();
-//                        });
-//                    });
-//                    alert("Veuillez correctement renseigner votre adresse email");
-//                    </script>';
-//            }; // Si le champ de l'email ne contient pas une écriture de type "email", prévenir l'utilisateur
-//            if(empty($_POST['message'])){ // Si le champ de l'email ne contient pas une écriture de type "email",
-//                echo '<script>
-//                    $(document).ready(function() {
-//                        $(".submit").on("click",function() {
-//                            var url = $(this).prop("href");
-//                            $("#form").load(url);
-//                            event.preventDefault();
-//                        });
-//                    });
-//                    alert("Et votre message ? On veut savoir !");
-//                    </script>';// le préciser à l'utilisateur.
-//            };
-        }
-        ?>
 
-                    <?php
+                <?php
 include('footer.php');
 //    include("/header-footer/header.html");
 ?>
