@@ -10,6 +10,7 @@
     /*font-style: italic;*/
     src: url('../fonts/CenturyGothicRegular.otf');
 }
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 
 /*******************************************************/
 
@@ -22,7 +23,7 @@ img {
     height: auto;
 }
 body {
-    font-family: "Century Gothic";
+    font-family: 'Roboto', sans-serif;
 }
 
 /*******************header******************/
@@ -490,15 +491,22 @@ body {
 /******************footer************************/
 
 .footer {
-    border-top: 3px solid #e61471;
+    /* border-top: 3px solid #e61471;*/
+    margin-top: 0.5%;
 }
 .footer-menu {
+    border-top-color: #e61471;
+    border-top-width: 0 0 2px;
+    border-top-style: solid;
     background-color: #ffffff;
     display: flex;
     width: 100%;
+    /*position: fixed;*/
+    bottom: 0;
     /*    bottom: 0;*/
     justify-content: space-around;
     align-items: center;
+    margin-top: 5%;
 }
 .box {
     font-size: 2.001rem;
@@ -621,6 +629,9 @@ body {
 .texte-article {
     padding: 2%;
 }
+.texte-article p {
+    font-family: 'Roboto', sans-serif;
+}
 .tittle-grey {
     clear: both;
     text-align: center;
@@ -654,4 +665,6 @@ body {
     text-decoration: none;
     color: #878786;
 }
-.
+.padding-footer {
+    padding-bottom: 20%;
+}
